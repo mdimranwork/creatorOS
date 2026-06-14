@@ -8,7 +8,7 @@
 <body>
 
 <h1>Creator OS</h1>
-<p>AI Command + Approval System</p>
+<p>Social Media AI Engine</p>
 
 <hr>
 
@@ -16,71 +16,69 @@
 
 <br><br>
 
-<button onclick="generate()">Generate</button>
+<button onclick="generate()">Generate Content</button>
 
 <hr>
 
-<h3>Preview Panel</h3>
+<h3>Multi-Platform Preview</h3>
 
-<div id="preview" style="border:1px solid #000;padding:10px;min-height:60px;">
-No preview yet
+<div id="fb" style="border:1px solid #000;padding:10px;margin:5px;">
+Facebook: Waiting...
+</div>
+
+<div id="ig" style="border:1px solid #000;padding:10px;margin:5px;">
+Instagram: Waiting...
+</div>
+
+<div id="ln" style="border:1px solid #000;padding:10px;margin:5px;">
+LinkedIn: Waiting...
+</div>
+
+<div id="bh" style="border:1px solid #000;padding:10px;margin:5px;">
+Behance: Waiting...
 </div>
 
 <br>
 
-<button onclick="approve()">Approve</button>
-<button onclick="reject()">Reject</button>
+<button onclick="approve()">Approve All</button>
 
 <hr>
 
 <h3>Status</h3>
 
-<div id="status">Waiting...</div>
+<div id="status">Idle</div>
 
 <script>
-
-let currentTask = "";
 
 function generate() {
 
 let cmd = document.getElementById("cmd").value;
-let preview = document.getElementById("preview");
-let status = document.getElementById("status");
 
-currentTask = cmd;
+document.getElementById("fb").innerHTML =
+"📘 FB Post:<br>🔥 " + cmd + " campaign launched!";
 
-if(cmd.includes("poster")) {
-preview.innerHTML = "🎨 Poster Design Ready<br>Concept: Modern Cinematic Style<br>Caption: High Impact Branding Post";
-}
+document.getElementById("ig").innerHTML =
+"📸 IG Caption:<br>✨ Stylish version of: " + cmd;
 
-else if(cmd.includes("publish")) {
-preview.innerHTML = "🚀 Social Media Campaign Ready<br>FB + IG + LinkedIn + Portfolio update prepared";
-}
+document.getElementById("ln").innerHTML =
+"💼 LinkedIn Post:<br>Professional update: " + cmd;
 
-else if(cmd.includes("article")) {
-preview.innerHTML = "📝 SEO Article Draft Ready<br>Topic optimized, structure prepared";
-}
+document.getElementById("bh").innerHTML =
+"🎨 Behance Case:<br>Design story: " + cmd;
 
-else {
-preview.innerHTML = "⚠️ Unknown task - basic draft created";
-}
-
-status.innerHTML = "Preview Generated - Waiting for approval";
+document.getElementById("status").innerHTML =
+"Preview generated - waiting approval";
 }
 
 function approve() {
-document.getElementById("status").innerHTML =
-"✅ Approved - Executing: " + currentTask;
-}
 
-function reject() {
 document.getElementById("status").innerHTML =
-"❌ Rejected - Task cancelled";
-document.getElementById("preview").innerHTML = "No preview yet";
+"🚀 Published to all platforms (simulated)";
+
 }
 
 </script>
 
 </body>
 
-  </html>
+</html>
