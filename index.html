@@ -8,7 +8,7 @@
 <body>
 
 <h1>Creator OS</h1>
-<p>AI Powered Command System</p>
+<p>AI Command + Approval System</p>
 
 <hr>
 
@@ -16,43 +16,71 @@
 
 <br><br>
 
-<button onclick="runCommand()">Run</button>
+<button onclick="generate()">Generate</button>
 
 <hr>
 
-<h3>AI Output</h3>
+<h3>Preview Panel</h3>
 
-<div id="output" style="border:1px solid #000;padding:10px;min-height:50px;">
-Waiting for command...
+<div id="preview" style="border:1px solid #000;padding:10px;min-height:60px;">
+No preview yet
 </div>
+
+<br>
+
+<button onclick="approve()">Approve</button>
+<button onclick="reject()">Reject</button>
+
+<hr>
+
+<h3>Status</h3>
+
+<div id="status">Waiting...</div>
 
 <script>
 
-function runCommand() {
+let currentTask = "";
+
+function generate() {
 
 let cmd = document.getElementById("cmd").value;
-let output = document.getElementById("output");
+let preview = document.getElementById("preview");
+let status = document.getElementById("status");
+
+currentTask = cmd;
 
 if(cmd.includes("poster")) {
-output.innerHTML = "🧠 AI: Poster design workflow started...<br>→ Creating concept<br>→ Generating caption<br>→ Preparing social posts";
+preview.innerHTML = "🎨 Poster Design Ready<br>Concept: Modern Cinematic Style<br>Caption: High Impact Branding Post";
 }
 
 else if(cmd.includes("publish")) {
-output.innerHTML = "🚀 AI: Publishing process started...<br>→ Facebook<br>→ Instagram<br>→ LinkedIn<br>→ Portfolio updated";
+preview.innerHTML = "🚀 Social Media Campaign Ready<br>FB + IG + LinkedIn + Portfolio update prepared";
 }
 
 else if(cmd.includes("article")) {
-output.innerHTML = "📝 AI: SEO Article generation started...<br>→ Topic analysis<br>→ Writing draft<br>→ Optimizing SEO";
+preview.innerHTML = "📝 SEO Article Draft Ready<br>Topic optimized, structure prepared";
 }
 
 else {
-output.innerHTML = "⚠️ AI: Command understood but no workflow found.<br>Try: poster / publish / article";
+preview.innerHTML = "⚠️ Unknown task - basic draft created";
 }
 
+status.innerHTML = "Preview Generated - Waiting for approval";
+}
+
+function approve() {
+document.getElementById("status").innerHTML =
+"✅ Approved - Executing: " + currentTask;
+}
+
+function reject() {
+document.getElementById("status").innerHTML =
+"❌ Rejected - Task cancelled";
+document.getElementById("preview").innerHTML = "No preview yet";
 }
 
 </script>
 
 </body>
 
-</html>
+  </html>
