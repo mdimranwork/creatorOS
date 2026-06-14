@@ -8,7 +8,7 @@
 <body>
 
 <h1>Creator OS</h1>
-<p>Social Media AI Engine</p>
+<p>Portfolio Auto Builder System</p>
 
 <hr>
 
@@ -16,64 +16,54 @@
 
 <br><br>
 
-<button onclick="generate()">Generate Content</button>
+<button onclick="generate()">Generate Project</button>
 
 <hr>
 
-<h3>Multi-Platform Preview</h3>
+<h3>Live Portfolio</h3>
 
-<div id="fb" style="border:1px solid #000;padding:10px;margin:5px;">
-Facebook: Waiting...
-</div>
-
-<div id="ig" style="border:1px solid #000;padding:10px;margin:5px;">
-Instagram: Waiting...
-</div>
-
-<div id="ln" style="border:1px solid #000;padding:10px;margin:5px;">
-LinkedIn: Waiting...
-</div>
-
-<div id="bh" style="border:1px solid #000;padding:10px;margin:5px;">
-Behance: Waiting...
+<div id="portfolio" style="border:1px solid #000;padding:10px;min-height:80px;">
+No projects yet
 </div>
 
 <br>
 
-<button onclick="approve()">Approve All</button>
+<button onclick="approve()">Approve & Add to Portfolio</button>
 
 <hr>
 
 <h3>Status</h3>
 
-<div id="status">Idle</div>
+<div id="status">Waiting...</div>
 
 <script>
+
+let currentProject = "";
 
 function generate() {
 
 let cmd = document.getElementById("cmd").value;
 
-document.getElementById("fb").innerHTML =
-"📘 FB Post:<br>🔥 " + cmd + " campaign launched!";
-
-document.getElementById("ig").innerHTML =
-"📸 IG Caption:<br>✨ Stylish version of: " + cmd;
-
-document.getElementById("ln").innerHTML =
-"💼 LinkedIn Post:<br>Professional update: " + cmd;
-
-document.getElementById("bh").innerHTML =
-"🎨 Behance Case:<br>Design story: " + cmd;
+currentProject = cmd;
 
 document.getElementById("status").innerHTML =
-"Preview generated - waiting approval";
+"Project generated - waiting approval";
+
+document.getElementById("status").innerHTML =
+"Preview ready: " + cmd;
+
 }
 
 function approve() {
 
+let portfolio = document.getElementById("portfolio");
+
+portfolio.innerHTML +=
+"<div style='border:1px solid gray;margin:5px;padding:5px;'>🎨 " 
++ currentProject + "</div>";
+
 document.getElementById("status").innerHTML =
-"🚀 Published to all platforms (simulated)";
+"✅ Added to portfolio & saved";
 
 }
 
@@ -81,4 +71,4 @@ document.getElementById("status").innerHTML =
 
 </body>
 
-</html>
+                   </html>
